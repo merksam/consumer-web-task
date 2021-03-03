@@ -6,10 +6,7 @@ import RestaurantListFiltering from '../models/restaurant-filtering-model';
 // Event types
 // -------------------------------------------------------------------------------------------------
 
-export const RESTAURANT_LIST_FILTERING_CHANGED_DELIVERY_TYPE =
-  'RESTAURANT_LIST_FILTERING_CHANGED_DELIVERY_TYPE';
-export const RESTAURANT_LIST_FILTERING_CHANGED_CUISINE =
-  'RESTAURANT_LIST_FILTERING_CHANGED_CUISINE';
+export const RESTAURANT_LIST_FILTERING_CHANGED = 'RESTAURANT_LIST_FILTERING_CHANGED';
 
 // -------------------------------------------------------------------------------------------------
 // Reducer
@@ -17,29 +14,16 @@ export const RESTAURANT_LIST_FILTERING_CHANGED_CUISINE =
 
 const initialState = {
   cuisines: {},
-  deliveryType: RestaurantListFiltering.DELIVERY_TYPES.DELIVERY_FILTERING,
+  deliveryType: RestaurantListFiltering.DEFAULT_FILTERING_TYPE,
 };
 
 export function restaurantListFiltering(state = initialState, action) {
   switch (action.type) {
-    case RESTAURANT_LIST_FILTERING_CHANGED_DELIVERY_TYPE:
+    case RESTAURANT_LIST_FILTERING_CHANGED:
       return {
         ...state,
-        deliveryType: action.payload.deliveryType,
-      };
-    case RESTAURANT_LIST_FILTERING_CHANGED_CUISINE:
-      if (state.cuisines[action.payload.cuisine]) {
-        return {
-          ...state,
-          cuisines: omit(state.cuisines, action.payload.cuisine),
-        };
-      }
-      return {
-        ...state,
-        cuisines: {
-          ...state.cuisines,
-          [action.payload.cuisine]: action.payload.cuisine,
-        },
+        deliveryType: action.payload.deliveryType || state.deliveryType,
+        cuisines: action.payload.cuisines || state.cuisines,
       };
     default:
       return state;
@@ -50,16 +34,10 @@ export function restaurantListFiltering(state = initialState, action) {
 // Event creators
 // -------------------------------------------------------------------------------------------------
 
-export const filterRestaurantListByCuisine = cuisine => {
+export const filterRestaurantList = ({ deliveryType, cuisines }) => {
   return {
-    type: RESTAURANT_LIST_FILTERING_CHANGED_CUISINE,
-    payload: { cuisine },
-  };
-};
-export const filterRestaurantListByDeliveryType = deliveryType => {
-  return {
-    type: RESTAURANT_LIST_FILTERING_CHANGED_DELIVERY_TYPE,
-    payload: { deliveryType },
+    type: RESTAURANT_LIST_FILTERING_CHANGED,
+    payload: { deliveryType, cuisines },
   };
 };
 

@@ -1,9 +1,6 @@
 {
   "messages": {
-    "components": {
-      "header": {
-        "home": "DE Restaurants"
-      },
+    "taxonomy": {
       "cuisine": {
         "japanese": "Japanese",
         "pizza": "Pizza",
@@ -11,6 +8,11 @@
         "sushi": "Sushi",
         "burger": "Burger",
         "french": "French"
+      }
+    },
+    "components": {
+      "header": {
+        "home": "DE Restaurants"
       },
       "restaurantSorting": {
         "label": "Sort by",
@@ -29,11 +31,15 @@
       "restaurantItem": {
         "minimumOrderValue": "Min:",
         "minutes": "min"
+      },
+      "modalRestaurantFilter": {
+        "applyFilterButton": "Apply Filter"
       }
     },
     "pages": {
       "home": {
-        "content": "<b>DE Home page</b><p>Home page in Deutsch</p>"
+        "content": "<b>DE Home page</b><p>Home page in Deutsch</p>",
+        "openFiltersButton": "Open Filters"
       }
     }
   }

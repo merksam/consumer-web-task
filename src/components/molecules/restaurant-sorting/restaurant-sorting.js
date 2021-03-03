@@ -9,12 +9,12 @@ export const RestaurantSorting = props => {
     sortingTypes,
     translationMap,
     selectedSortingType,
-    sortRestaurantList,
     isLoading,
     translate,
+    onChange,
   } = props;
 
-  const onChangeSorting = event => sortRestaurantList(event.target.value);
+  const onChangeSorting = event => onChange({ sortingType: event.target.value });
 
   return (
     <div>

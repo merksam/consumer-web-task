@@ -16,8 +16,7 @@ import RestaurantListModel from '../models/restaurant-list-model';
 
 import networkInterfaceFactory from '../../../mechanisms/network/server-network-interface-factory';
 import {
-  RESTAURANT_LIST_FILTERING_CHANGED_CUISINE,
-  RESTAURANT_LIST_FILTERING_CHANGED_DELIVERY_TYPE,
+  RESTAURANT_LIST_FILTERING_CHANGED,
   restaurantFilteringCuisinesSelector,
   restaurantFilteringDeliveryTypeSelector,
 } from '../../restaurant-filtering/ducks/restaurant-filtering-reducer';
@@ -50,6 +49,5 @@ export function* restaurantsListFetchHandler(action) {
 export function* restaurantsListSaga() {
   yield takeEvery(RESTAURANT_LIST_REQUESTED, restaurantsListFetchHandler);
   yield takeEvery(RESTAURANT_LIST_SORTING_CHANGED, restaurantsListFetchHandler);
-  yield takeEvery(RESTAURANT_LIST_FILTERING_CHANGED_CUISINE, restaurantsListFetchHandler);
-  yield takeEvery(RESTAURANT_LIST_FILTERING_CHANGED_DELIVERY_TYPE, restaurantsListFetchHandler);
+  yield takeEvery(RESTAURANT_LIST_FILTERING_CHANGED, restaurantsListFetchHandler);
 }

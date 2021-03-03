@@ -1,5 +1,5 @@
 import React from 'react';
-
+import omit from 'lodash/omit';
 import { Heading } from '../../atoms/heading';
 import styles from './restaurant-filtering-style.scss';
 import { translateCuisine } from '../../../mechanisms/l10n/client/translation-helper';
@@ -12,15 +12,29 @@ export const RestaurantFiltering = props => {
     cuisines,
     selectedCuisines,
     selectedDeliveryType,
-    filterRestaurantListByDeliveryType,
-    filterRestaurantListByCuisine,
     isLoading,
     translate,
     intl,
+    onChange,
   } = props;
 
-  const onChangeDeliveryType = event => filterRestaurantListByDeliveryType(event.target.value);
-  const onChangeCuisine = event => filterRestaurantListByCuisine(event.target.value);
+  const onChangeDeliveryType = event => {
+    onChange({ deliveryType: event.target.value });
+  };
+
+  const onChangeCuisine = event => {
+    const { value } = event.target;
+    let nextCuisines = {};
+    if (selectedCuisines[value]) {
+      nextCuisines = omit(selectedCuisines, value);
+    } else {
+      nextCuisines = {
+        ...selectedCuisines,
+        [value]: value,
+      };
+    }
+    onChange({ cuisines: nextCuisines });
+  };
 
   return (
     <div>
@@ -52,7 +66,7 @@ export const RestaurantFiltering = props => {
             name="restaurantFilteringByCuisine"
             value={cuisine}
             onChange={onChangeCuisine}
-            checked={selectedCuisines[cuisine]}
+            checked={!!selectedCuisines[cuisine]}
           />{' '}
           {translateCuisine(intl, cuisine.toLowerCase())}
         </label>

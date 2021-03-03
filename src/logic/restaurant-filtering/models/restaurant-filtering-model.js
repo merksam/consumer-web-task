@@ -17,6 +17,9 @@ RestaurantListFiltering.DELIVERY_TYPES = {
   PICKUP_FILTERING: 'PICKUP_FILTERING',
 };
 
+RestaurantListFiltering.DEFAULT_FILTERING_TYPE =
+  RestaurantListFiltering.DELIVERY_TYPES.DELIVERY_FILTERING;
+
 RestaurantListFiltering.TRANSLATIONS_MAP = {
   DELIVERY_FILTERING: 'delivery',
   PICKUP_FILTERING: 'pickup',

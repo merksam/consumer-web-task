@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import flow from 'lodash/flow';
 
@@ -6,8 +7,7 @@ import { translate } from '../../../mechanisms/l10n/hoc/translate';
 import {
   restaurantFilteringCuisinesSelector,
   restaurantFilteringDeliveryTypeSelector,
-  filterRestaurantListByCuisine,
-  filterRestaurantListByDeliveryType,
+  filterRestaurantList,
 } from '../../../logic/restaurant-filtering/ducks/restaurant-filtering-reducer';
 import RestaurantListFilteringModel from '../../../logic/restaurant-filtering/models/restaurant-filtering-model';
 import {
@@ -29,14 +29,20 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  filterRestaurantListByCuisine,
-  filterRestaurantListByDeliveryType,
+  filterRestaurantList,
 };
 
-export const RestaurantFilteringEnhanced = flow(
+let RestaurantFilteringEnhanced = props => {
+  const { filterRestaurantList: filter, ...rest } = props;
+  return <RestaurantFiltering {...rest} onChange={filter} />;
+};
+
+RestaurantFilteringEnhanced = flow(
   connect(
     mapStateToProps,
     mapDispatchToProps,
   ),
   translate('components.restaurantFiltering'),
-)(RestaurantFiltering);
+)(RestaurantFilteringEnhanced);
+
+export { RestaurantFilteringEnhanced };

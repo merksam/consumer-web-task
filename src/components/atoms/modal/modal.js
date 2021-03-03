@@ -10,6 +10,7 @@ import { setBodyHasScrollbarBehavior } from '../../../helpers/scrollbar-width-be
 import { Heading } from '../heading';
 
 import styles from './modal-style.scss';
+import { onServer } from '../../../utils/on-server';
 
 class Modal extends Component {
   constructor(props) {
@@ -130,7 +131,7 @@ class Modal extends Component {
         overlayClassName={overlayClassName}
         portalClassName={wrapperClassNames}
         bodyOpenClassName={bodyClassName}
-        isOpen={isOpen}
+        isOpen={onServer() ? false : isOpen}
         onAfterOpen={onAfterOpenHandler}
         onRequestClose={onRequestCloseHandler}
         contentLabel={contentLabel}

@@ -12,7 +12,7 @@ export const RESTAURANT_LIST_SORTING_CHANGED = 'RESTAURANT_LIST_SORTING_CHANGED'
 // -------------------------------------------------------------------------------------------------
 
 const initialState = {
-  sortingType: RestaurantListSorting.TYPES.NO_SORTING,
+  sortingType: RestaurantListSorting.DEFAULT_SORTING_TYPE,
 };
 
 export function restaurantListSorting(state = initialState, action) {
@@ -30,7 +30,7 @@ export function restaurantListSorting(state = initialState, action) {
 // Event creators
 // -------------------------------------------------------------------------------------------------
 
-export const sortRestaurantList = sortingType => {
+export const sortRestaurantList = ({ sortingType }) => {
   return {
     type: RESTAURANT_LIST_SORTING_CHANGED,
     payload: { sortingType },

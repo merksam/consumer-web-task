@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import flow from 'lodash/flow';
 
@@ -21,10 +22,17 @@ const mapDispatchToProps = {
   sortRestaurantList,
 };
 
-export const RestaurantSortingEnhanced = flow(
+let RestaurantSortingEnhanced = props => {
+  const { sortRestaurantList: sort, ...rest } = props;
+  return <RestaurantSorting {...rest} onChange={sort} />;
+};
+
+RestaurantSortingEnhanced = flow(
   connect(
     mapStateToProps,
     mapDispatchToProps,
   ),
   translate('components.restaurantSorting'),
-)(RestaurantSorting);
+)(RestaurantSortingEnhanced);
+
+export { RestaurantSortingEnhanced };

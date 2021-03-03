@@ -16,6 +16,8 @@ RestaurantListSorting.TYPES = {
   DELIVERY_TIME_SORTING: 'DELIVERY_TIME_SORTING',
 };
 
+RestaurantListSorting.DEFAULT_SORTING_TYPE = RestaurantListSorting.TYPES.NO_SORTING;
+
 RestaurantListSorting.TRANSLATIONS_MAP = {
   NO_SORTING: 'noSorting',
   ALPHABETICAL_SORTING: 'alphabetically',
