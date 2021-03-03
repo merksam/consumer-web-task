@@ -25,7 +25,7 @@ const mapStateToProps = state => ({
   selectedSortingType: restaurantSortingTypeSelector(state),
 
   cuisines: (() => {
-    // @todo is it okay to get options from aggregates? Is it something like taxonomy for filters?
+    // @todo is it okay to get options from aggregates? Is it something like taxonomy?
     const cuisines = restaurantsListAggregatesSelector(state).cuisines || [];
     return RestaurantListFilteringModel.getCuisinesArray(cuisines);
   })(),
@@ -38,7 +38,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    // @todo should we created separated action type and single reducer?
+    // @todo should we created separated action type and single reducer instead of 2 different?
     updateFilterAndSearch: value => {
       dispatch(sortRestaurantList({ sortingType: value.sortingType }));
       dispatch(

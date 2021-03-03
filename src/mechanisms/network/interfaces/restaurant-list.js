@@ -63,35 +63,6 @@ const sort = (restaurantsResponse, sortingType) => {
   };
 };
 
-// const updateResponseTotals = (restaurantsResponse) => {
-//   let cuisines = [];
-//   let shipping = [];
-//
-//   restaurantsResponse.forEach(restaurant => {
-//     cuisines = {
-//       ...cuisines,
-//       ...restaurant.cuisines,
-//     };
-//     shipping = {
-//       ...shipping,
-//       ...restaurant.shipping.type,
-//     };
-//   });
-//   cuisines = [...new Set(cuisines)].reduce((acc, cuisine) => {
-//     return {
-//       ...acc,
-//       [cuisine]: cuisine,
-//     };
-//   }, {});
-//   return {
-//     ...restaurantsResponse,
-//     aggregates: {
-//       ...restaurantsResponse,
-//       cuisines: new Set(cuisines).to,
-//     },
-//   };
-// };
-
 export default class RestaurantListInterface {
   constructor(params = { name: 'Restaurants' }) {
     const { name } = params;

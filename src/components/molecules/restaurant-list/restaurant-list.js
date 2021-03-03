@@ -18,7 +18,6 @@ const propTypes = {
 
 export const RestaurantList = ({ isLoading, list = [], meta }) => {
   const onRestaurantClick = restaurant => {
-    //@todo #R1.1
     console.log(restaurant.slug);
   };
 

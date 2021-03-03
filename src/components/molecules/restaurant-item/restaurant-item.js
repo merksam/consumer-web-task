@@ -42,7 +42,6 @@ export const RestaurantItem = props => {
   const logotype = RestaurantItemModel.getLogotype(restaurant);
   const cuisines = RestaurantItemModel.getCuisines(restaurant);
 
-  //@todo #R1.2
   const minimumOrderValue = RestaurantItemModel.getMOV(restaurant);
   const rating = RestaurantItemModel.getRating(restaurant);
   const deliveryTime = RestaurantItemModel.getDeliveryTime(restaurant);

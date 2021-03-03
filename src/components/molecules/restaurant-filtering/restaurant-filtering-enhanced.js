@@ -20,7 +20,7 @@ const mapStateToProps = state => ({
   selectedCuisines: restaurantFilteringCuisinesSelector(state),
   selectedDeliveryType: restaurantFilteringDeliveryTypeSelector(state),
   cuisines: (() => {
-    // @todo is it okay to get options from aggregates? Is this data dependent of what we have in response?
+    // @todo is it okay to get options from aggregates? Is it something like taxonomy?
     const cuisines = restaurantsListAggregatesSelector(state).cuisines || [];
     return RestaurantListFilteringModel.getCuisinesArray(cuisines);
   })(),
