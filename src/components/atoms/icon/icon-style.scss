@@ -1,0 +1,15 @@
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon svg {
+  display: block;
+}
+
+.icon:not(.icon-raw) svg path,
+polygon,
+rect,
+circle {
+  fill: currentColor;
+}

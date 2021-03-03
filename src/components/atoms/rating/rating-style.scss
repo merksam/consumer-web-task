@@ -1,0 +1,15 @@
+.rating {
+  display: flex;
+  align-items: center;
+  color: var(--c-brand-primary-light);
+}
+
+.rating span {
+  position: relative;
+  top: -1px;
+  margin-right: var(--space-s);
+}
+
+.low {
+  color: var(--c-shade-dark);
+}

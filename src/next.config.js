@@ -56,6 +56,11 @@ const nextConfig = {
       },
     });
 
+    config.module.rules.push({
+      test: /\.svg/i,
+      use: 'raw-loader',
+    });
+
     // aliases
     config.resolve.alias['components'] = path.resolve(__dirname, 'components');
     config.resolve.alias['constants'] = path.resolve(__dirname, 'constants');

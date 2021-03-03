@@ -1,0 +1,13 @@
+.restaurant-item {
+  margin-bottom: var(--space-l);
+}
+
+.list {
+  transition: opacity 0.2s ease-in;
+}
+
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: wait;
+}

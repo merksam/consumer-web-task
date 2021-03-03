@@ -1,10 +1,10 @@
 .main {
   display: flex;
-
   flex: 1 0 auto;
   flex-flow: row nowrap;
   justify-content: center;
-
+  margin: 0 auto;
+  max-width: $mq-large-max;
   background-color: var(--c-bg);
 }
 

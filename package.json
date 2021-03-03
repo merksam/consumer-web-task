@@ -119,6 +119,7 @@
     "postcss-custom-properties": "8.0.10",
     "prettier": "1.17.1",
     "prop-types": "^15.7.2",
+    "raw-loader": "4.0.2",
     "sass-resources-loader": "2.0.1",
     "stylelint": "10.0.1",
     "stylelint-prettier": "1.1.0",

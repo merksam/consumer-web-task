@@ -6,7 +6,6 @@ const Page = ({ children }) => {
   return (
     <div>
       <Header />
-
       <main className={styles.main}>{children}</main>
     </div>
   );

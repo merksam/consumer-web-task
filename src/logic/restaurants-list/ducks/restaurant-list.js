@@ -89,5 +89,7 @@ export const fetchRestaurantListFailed = error => {
 const rootSelector = state => get(state, 'restaurantList', initialState);
 
 export const restaurantsListSelector = state => rootSelector(state).list;
+export const restaurantsListMetaSelector = state => rootSelector(state).meta;
 export const restaurantsListErrorSelector = state => rootSelector(state).error;
 export const restaurantsListIsLoadingSelector = state => rootSelector(state).isLoading;
+export const restaurantsListAggregatesSelector = state => rootSelector(state).aggregates;

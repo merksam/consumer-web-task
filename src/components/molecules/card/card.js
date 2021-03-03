@@ -5,9 +5,9 @@ import noop from 'lodash/noop';
 import styles from './card-style.scss';
 
 const Card = props => {
-  const { children, isSelected, onClick } = props;
+  const { children, isSelected, onClick, className } = props;
 
-  const classNames = classnames(styles.card, {
+  const classNames = classnames(styles.card, className, {
     [styles['__is-selected']]: isSelected,
     [styles.__clickable]: onClick !== noop,
   });
@@ -21,6 +21,7 @@ const Card = props => {
 
 Card.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 
   /** sets card to selected */
   isSelected: PropTypes.bool,
@@ -30,7 +31,7 @@ Card.propTypes = {
 
 Card.defaultProps = {
   isSelected: false,
-
+  className: undefined,
   onClick: noop,
 };
 
