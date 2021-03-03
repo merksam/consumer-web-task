@@ -13,7 +13,7 @@
     "lint": "npm run lint:js && npm run lint:styles",
     "lint:js": "eslint src/**/*.{js,jsx}",
     "lint:styles": "stylelint src/**/*.{css,scss,sass}",
-    "fix": "prettier --write src/**/*.{js,jsx,json,css,scss,sass,md,yml,yaml}"
+    "fix": "prettier --write src/**/**/**/**/**/*.{js,jsx,json,css,scss,sass,md,yml,yaml}"
   },
   "engines": {
     "node": "^12.2.0",

@@ -9,7 +9,9 @@ export default class NetworkInterface {
     const interfaceInstance = new Interface();
 
     if (!interfaceInstance.name) {
-      throw new Error('Network Interface. Error during plugging a new Interface. No Interface name specified.');
+      throw new Error(
+        'Network Interface. Error during plugging a new Interface. No Interface name specified.',
+      );
     }
     this.interfacesList[interfaceInstance.name] = interfaceInstance;
   }
