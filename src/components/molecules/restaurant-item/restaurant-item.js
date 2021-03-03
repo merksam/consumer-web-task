@@ -26,13 +26,23 @@ const defaultProps = {
   className: undefined,
 };
 
-const formatMOV = (amount, currencyMeta) => {
-  const value = (amount / currencyMeta.denominator).toFixed(2);
+const formatMOV = (val, currencyMeta) => {
+  const value = (val / currencyMeta.denominator).toFixed(2);
   const currencySignMap = {
     euro: '€',
     dollar: '$',
   };
   return currencySignMap[currencyMeta.type] + value;
+};
+
+const formatTime = (val, timeMeta) => {
+  switch (timeMeta.type) {
+    case 'hours':
+      return val * 60;
+    case 'minutes':
+    default:
+      return val;
+  }
 };
 
 export const RestaurantItem = props => {
@@ -64,7 +74,7 @@ export const RestaurantItem = props => {
   const renderDeliveryTime = () => {
     return (
       <div className={styles['ordering-info-item']}>
-        {deliveryTime}
+        {formatTime(deliveryTime, meta.time)}
         {translate('minutes')}
       </div>
     );

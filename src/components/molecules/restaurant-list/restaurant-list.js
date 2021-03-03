@@ -9,31 +9,39 @@ import styles from './restaurant-list-style.scss';
 import { RestaurantItem } from '../restaurant-item';
 import { RestaurantPropType } from '../restaurant-item/restaurant-item-prop-types';
 import { RestaurantListMetaPropType } from './restaurant-list-prop-types';
+import { Heading } from '../../atoms/heading';
 
 const propTypes = {
   isLoading: PropTypes.bool.isRequired,
   meta: RestaurantListMetaPropType.isRequired,
+  translate: PropTypes.func.isRequired,
   list: PropTypes.arrayOf(RestaurantPropType.isRequired).isRequired,
 };
 
-export const RestaurantList = ({ isLoading, list = [], meta }) => {
+export const RestaurantList = ({ isLoading, list = [], meta, translate }) => {
   const onRestaurantClick = restaurant => {
     console.log(restaurant.slug);
   };
 
-  const classNames = classnames(styles['list'], { [styles['loading']]: isLoading });
+  const classNames = classnames(styles.list, { [styles.loading]: isLoading });
 
   return (
     <div className={classNames}>
-      {list.map(restaurantItem => (
-        <RestaurantItem
-          className={styles['restaurant-item']}
-          meta={meta}
-          key={RestaurantItemModel.getId(restaurantItem)}
-          onClick={() => onRestaurantClick(restaurantItem)}
-          restaurant={restaurantItem}
-        />
-      ))}
+      {list.length ? (
+        list.map(restaurantItem => (
+          <RestaurantItem
+            className={styles['restaurant-item']}
+            meta={meta}
+            key={RestaurantItemModel.getId(restaurantItem)}
+            onClick={() => onRestaurantClick(restaurantItem)}
+            restaurant={restaurantItem}
+          />
+        ))
+      ) : (
+        <Heading level={5} align="left">
+          {translate('noResults')}
+        </Heading>
+      )}
     </div>
   );
 };

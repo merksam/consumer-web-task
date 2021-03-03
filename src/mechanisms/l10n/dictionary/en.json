@@ -14,6 +14,9 @@
       "header": {
         "home": "Restaurants"
       },
+      "restaurantList": {
+        "noResults": "No Restaurants Found"
+      },
       "restaurantSorting": {
         "label": "Sort by",
         "noSorting": "No sorting",
