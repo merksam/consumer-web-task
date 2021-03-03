@@ -8,6 +8,7 @@
   width: 120px;
   height: 120px;
   margin-right: var(--space-n);
+  flex-shrink: 0;
 }
 
 .image {
@@ -16,10 +17,18 @@
   height: 100%;
 }
 
+.info {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .rating {
-  position: absolute;
-  top: 0;
-  right: 0;
+  margin-left: var(--space-m);
 }
 
 .cuisines {

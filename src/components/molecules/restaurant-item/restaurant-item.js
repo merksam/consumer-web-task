@@ -77,10 +77,12 @@ export const RestaurantItem = props => {
         <div className={styles['image-holder']}>
           <img src={logotype} className={styles['image']} />
         </div>
-        <div>
-          <Heading level={5}>{name}</Heading>
+        <div className={styles['info']}>
+          <div className={styles['header']}>
+            <Heading level={5}>{name}</Heading>
+            <Rating className={styles['rating']} value={rating} />
+          </div>
           <div className={styles['cuisines']}>{renderCuisines()}</div>
-          <Rating className={styles['rating']} value={rating} />
           <div className={styles['ordering-info']}>
             {renderMOV()}
             {renderDeliveryTime()}
