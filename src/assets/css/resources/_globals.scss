@@ -44,12 +44,14 @@
   --fz-scale-h3: 1.38;
   --fz-scale-h4: 1.08;
   --fz-scale-h5: 1.12;
+  --fz-scale-h6: 1.02;
 
   --fz-h1: calc(2.5rem * var(--fz-scale-h1));
   --fz-h2: calc(2.07rem * var(--fz-scale-h2));
   --fz-h3: calc(1.71rem * var(--fz-scale-h3));
   --fz-h4: calc(1.71rem * var(--fz-scale-h4));
   --fz-h5: calc(1.21rem * var(--fz-scale-h5));
+  --fz-h6: calc(1.04rem * var(--fz-scale-h6));
 
   --fz-xxl: var(--fz-h3);
   --fz-xl: var(--fz-h4);

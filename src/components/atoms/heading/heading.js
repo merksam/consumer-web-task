@@ -28,7 +28,7 @@ Heading.propTypes = {
   children: PropTypes.node.isRequired,
 
   /** required by default for h- tag, also defines visual */
-  level: PropTypes.oneOf([null, 1, 2, 3, 4, 5]),
+  level: PropTypes.oneOf([null, 1, 2, 3, 4, 5, 6]),
 
   /** specify heading alignment */
   align: PropTypes.oneOf(['', 'left', 'right', 'center']),

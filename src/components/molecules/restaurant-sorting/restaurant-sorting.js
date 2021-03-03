@@ -18,7 +18,7 @@ export const RestaurantSorting = props => {
 
   return (
     <div>
-      <Heading level={5} align="left">
+      <Heading level={6} align="left">
         {translate('label')}
       </Heading>
       {sortingTypes.map(sortingType => (

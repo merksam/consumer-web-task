@@ -5,11 +5,11 @@ export default class RestaurantsListModel {
     return get(response, 'data', []);
   }
 
-  static getMetaFromResponce(responce) {
-    return get(responce, 'meta', {});
+  static getMetaFromResponse(response) {
+    return get(response, 'meta', {});
   }
 
-  static getAggregatesFromResponce(responce) {
-    return get(responce, 'aggregates', {});
+  static getAggregatesFromResponse(response) {
+    return get(response, 'aggregates', {});
   }
 }

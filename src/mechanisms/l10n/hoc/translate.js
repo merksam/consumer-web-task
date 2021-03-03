@@ -35,8 +35,11 @@ export function translate(translationContext) {
         this.translateFormattedHTML = this.translateFormattedHTML.bind(this);
       }
 
-      translate(key, params) {
-        return this.props.intl.formatMessage({ id: `${translationContext}.${key}` }, params);
+      translate(key, params, defaultMessage) {
+        return this.props.intl.formatMessage(
+          { id: `${translationContext}.${key}`, defaultMessage },
+          params,
+        );
       }
 
       translateFormatted(key, params) {
